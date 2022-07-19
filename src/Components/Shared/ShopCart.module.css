@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 100px 75px;
+    height: 100vh;
+    gap: 20px;
+}
+
+.card {
+    flex: 1;
+}
+
+.checkout {
+    display: flex;
+    margin: 15px 0;
+    min-width: 375px;
+    padding: 25px 15px;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(255, 255, 255);
+    border: 1.5px solid #dcdcdc;
+    align-self: start;
+}
+
+.checkout p {
+    padding-bottom: 10px;
+    color: #ee384e;
+}
+
+.clickBtn {
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.clickBtn button {
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+.clickBtn button:nth-child(1) {
+    background-color: #37bb25;
+    padding: 5px;
+
+    color: #f9f9f9;
+    cursor: pointer;
+}
+
+.clickBtn button:nth-child(2) {
+    color: #37bb25;
+    background-color: white;
+    padding: 5px;
+}

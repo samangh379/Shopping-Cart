@@ -1,0 +1,183 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.formContainer {
+    border: 1px solid silver;
+    width: fit-content;
+    padding: 50px;
+    margin: 50px;
+    border-radius: 10px;
+    height: fit-content;
+    background-color: #fff;
+}
+
+.header {
+    text-align: left;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    color: #ee384e;
+}
+.formField {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    height: fit-content;
+    position: relative;
+}
+.formField label {
+    text-align: left;
+}
+.formInput {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 0 10px;
+    border: 1px solid silver;
+    transition: all 0.2s ease-in;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.fromUncompleted {
+    width: 300px;
+    height: 30px;
+
+    border-radius: 1px;
+    padding: 0 10px;
+    border-bottom: 1px solid rgb(186, 84, 84);
+    transition: all 0.2s ease-in;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.fromUncompleted:focus,
+.formInput:focus {
+    outline: none;
+    line-height: 30px;
+    height: 30px;
+    padding: 0 10px;
+    border: 1px solid #1a73e8;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.formField span {
+    text-align: left;
+    font-size: 12px;
+    top: 3.25rem;
+    position: absolute;
+    background-color: rgb(255, 211, 211);
+    width: fit-content;
+    border-radius: 2px;
+    color: rgb(180, 21, 21);
+}
+
+.formField:nth-child(6) label {
+    color: #1a73e8;
+    font-size: 15px;
+}
+.formField:nth-child(6) span {
+    position: absolute;
+    top: 20px;
+}
+input[type="checkbox"] {
+    width: 20px;
+    position: absolute;
+    right: 10px;
+}
+
+.accept,
+.accept2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.accept button {
+    margin-top: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    color: #f9f9f9;
+    font-size: 15px;
+    background-color: #ee384e;
+}
+.accept button:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgb(165, 161, 161);
+}
+.accept2 button {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: #37bb25;
+    padding: 10px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.accept2 button:hover {
+    padding: 10px;
+    background-color: #37bb25;
+    color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.accept a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: #37bb25;
+    padding: 10px;
+}
+
+.accept a:hover {
+    padding: 10px;
+    background-color: #37bb25;
+    color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.accept2 a {
+    margin-top: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #f9f9f9;
+    font-size: 15px;
+    background-color: #ee384e;
+}
+
+.accept2 a:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgb(165, 161, 161);
+}
+
+@media (max-width: 440px) {
+    .formContainer {
+        padding: 20px;
+        margin: 50px 20px;
+    }
+    .formContainer {
+        width: 90%;
+    }
+    .formInput {
+        width: 90%;
+    }
+    .fromUncompleted {
+        width: 90%;
+    }
+}
