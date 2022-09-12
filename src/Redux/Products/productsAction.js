@@ -21,10 +21,10 @@ const fetchProductsFail = (error) => {
 };
 
 export const fetchProducts = () => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(fetchProductsRequest());
-        axios
-            .get("https://fakestoreapi.com/products")
+        await axios
+            .get("https://fakestoreapi.com/products/")
             .then((response) => {
                 const products = response.data;
                 dispatch(fetchProductsSuccess(products));
