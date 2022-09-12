@@ -1,13 +1,12 @@
 import React, { useCallback, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
+import { useSelector } from "react-redux";
 //Icon
 import ShopIcon from "../../assets/icons/shop.svg";
-//context
-import { CartContext } from "../../Context/CartContextProvider";
 
 const NavBar = () => {
-    const { state } = useContext(CartContext);
+    const state = useSelector((state) => state.cartState);
     const [menuOpen, setMenuOpen] = useState(false);
     return (
         <div className={styles.firstContainer}>

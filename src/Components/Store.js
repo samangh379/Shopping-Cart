@@ -1,27 +1,28 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "./Store.module.css";
-//Components
+import Product from "../../src/Components/Shared/Product";
+import spinner from "../../src/assets/icons/Spinner.svg";
 
-//Context
-import { ProductContext } from "../Context/ProductContextProvider";
-import Product from "./Shared/Product";
+//Redux
+import { fetchProducts } from "../Redux/Products/productsAction";
 
 const Store = () => {
-    const products = useContext(ProductContext);
+    const dispatch = useDispatch();
+    const productsState = useSelector((state) => state.productsState);
+
+    useEffect(() => {
+        if (!productsState.products.length) dispatch(fetchProducts());
+    }, []);
+
     return (
         <div className={styles.container}>
-            {products.length ? (
-                products.map((items) => <Product key={items.id} productData={items} />)
+            {productsState.loading ? (
+                <img src={spinner} />
+            ) : productsState.error ? (
+                <h1>Something went wrong</h1>
             ) : (
-                <div>
-                    {/* <div className={styles.loadingWrap}>
-                        <div class="loadingBoxes loadingBoxColour1"></div>
-                        <div class="loadingBoxes loadingBoxColour2"></div>
-                        <div class="loadingBoxes loadingBoxColour3"></div>
-                        <div class="loadingBoxes loadingBoxColour4"></div>
-                        <div class="loadingBoxes loadingBoxColour5"></div>
-                    </div> */}
-                </div>
+                productsState.products.map((pro) => <Product key={pro.id} productData={pro} />)
             )}
         </div>
     );

@@ -159,7 +159,7 @@
     height: 3px;
     transform-origin: left;
     z-index: 300;
-    transition: all 1.5s ease;
+    transition: all 1s ease;
 }
 .MenuOpen span:first-child {
     background-color: aliceblue;

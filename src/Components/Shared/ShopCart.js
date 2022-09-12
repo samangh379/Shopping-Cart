@@ -4,13 +4,14 @@ import styles from "./ShopCart.module.css";
 import Cart from "./Cart";
 //function
 import { fixed } from "../helper/function";
+import { checkout, clear } from "../../Redux/Cart/cartAction";
 
-//context
-import { CartContext } from "../../Context/CartContextProvider";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 const ShopCart = () => {
-    const { state, dispatch } = useContext(CartContext);
+    const state = useSelector((state) => state.cartState);
+    const dispatch = useDispatch();
 
     return (
         <div className={styles.firstContainer}>
@@ -31,10 +32,8 @@ const ShopCart = () => {
                             {fixed(state.total)} $
                         </p>
                         <div className={styles.clickBtn}>
-                            <button onClick={() => dispatch({ type: "CHECKOUT" })}>
-                                Check out
-                            </button>
-                            <button onClick={() => dispatch({ type: "CLEAR" })}>Clear</button>
+                            <button onClick={() => dispatch(checkout())}>Check out</button>
+                            <button onClick={() => dispatch(clear())}>Clear</button>
                         </div>
                     </div>
                 )}

@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import styles from "./Cart.module.css";
-
-//Context
-import { CartContext } from "../../Context/CartContextProvider";
+import { useDispatch, useSelector } from "react-redux";
+import { increase, decrease, removeItem } from "../../Redux/Cart/cartAction";
 
 //function
 import { shorten } from "../helper/function";
@@ -11,8 +10,8 @@ import { shorten } from "../helper/function";
 import RemoveIcon from "../../assets/icons/trash.svg";
 
 const Cart = (props) => {
-    const { state, dispatch } = useContext(CartContext);
-
+    const state = useSelector((state) => state.stateCart);
+    const dispatch = useDispatch();
     const { image, title, price, quantity } = props.data;
     return (
         <div className={styles.container}>
@@ -24,20 +23,13 @@ const Cart = (props) => {
             <div>{quantity}</div>
             <div className={styles.quantity}>
                 {quantity > 1 ? (
-                    <button onClick={() => dispatch({ type: "DECREASE", payload: props.data })}>
-                        -
-                    </button>
+                    <button onClick={() => dispatch(decrease(props.data))}>-</button>
                 ) : (
-                    <button onClick={() => dispatch({ type: "REMOVE_ITEM", payload: props.data })}>
-                        <img
-                            src={RemoveIcon}
-                            style={{ width: "12px", backgroundColor: "#ee384e" }}
-                        />
+                    <button onClick={() => dispatch(removeItem(props.data))}>
+                        <img src={RemoveIcon} style={{ width: "12px", backgroundColor: "#ee384e" }} />
                     </button>
                 )}
-                <button onClick={() => dispatch({ type: "INCREASER", payload: props.data })}>
-                    +
-                </button>
+                <button onClick={() => dispatch(increase(props.data))}>+</button>
             </div>
         </div>
     );
