@@ -24,7 +24,7 @@ export const fetchProducts = () => {
     return async (dispatch) => {
         dispatch(fetchProductsRequest());
         await axios
-            .get("https://fakestoreapi.com/products/")
+            .get("https://fakestoreapi.com/Products")
             .then((response) => {
                 const products = response.data;
                 dispatch(fetchProductsSuccess(products));
