@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Product.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { decrease, increase, removeItem, checkout, addItem, clear } from "../../Redux/Cart/cartAction";
+import { decrease, increase, removeItem, addItem } from "../../Redux/Cart/cartAction";
 //function
 import { shorten, isInCart, quantityCount } from "../helper/function";
 

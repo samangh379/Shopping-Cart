@@ -22,6 +22,7 @@ const NavBar = () => {
                 </div>
 
                 <div className={styles.navbarInfo}>
+                    <Link to="/homepage">Home</Link>
                     <Link to="/products">Products</Link>
                     <Link to="/SignUp">Account</Link>
                     <Link to="/aboutus">AboutUs</Link>
@@ -29,6 +30,10 @@ const NavBar = () => {
                 <div className={styles.menuBar}>
                     <div className={menuOpen ? styles.active : styles.nav}>
                         <ul>
+                            <li onClick={() => setMenuOpen(false)}>
+                                <Link to="/homepage">Home</Link>
+                            </li>
+
                             <li onClick={() => setMenuOpen(false)}>
                                 <Link to="/products">Products</Link>
                             </li>
